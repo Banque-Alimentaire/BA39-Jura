@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
         <style>
         #map {
-            width: 1414px;
+            width: 1382px;
             height: 782px;
         }
         </style>
@@ -44,11 +44,13 @@
         <script src="data/RestoJura_13.js"></script>
         <script src="data/SecoursPopulaireJura_14.js"></script>
         <script src="data/AssociationspartenairesdelaBanqueAlimentaire_15.js"></script>
-        <script src="data/RgionBourgogneFrancheComt_16.js"></script>
+        <script src="data/AntennesBA_16.js"></script>
+        <script src="data/BanqueAlimentaireduJura_17.js"></script>
+        <script src="data/RgionBourgogneFrancheComt_18.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[46.22309008632137,4.451186263157442],[47.33290840555939,7.38500510938077]]);
+        }).fitBounds([[46.108985896174495,4.30981044770635],[47.475581441806895,7.8415811824623605]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -1139,7 +1141,142 @@
         });
         bounds_group.addLayer(layer_AssociationspartenairesdelaBanqueAlimentaire_15);
         map.addLayer(layer_AssociationspartenairesdelaBanqueAlimentaire_15);
-        function pop_RgionBourgogneFrancheComt_16(feature, layer) {
+        function pop_AntennesBA_16(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>REGION</strong><br />' + (feature.properties['REGION'] !== null ? autolinker.link(feature.properties['REGION'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Adresse</strong><br />' + (feature.properties['Adresse'] !== null ? autolinker.link(feature.properties['Adresse'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Antenne BA</strong><br />' + (feature.properties['BANQUES AL'] !== null ? autolinker.link(feature.properties['BANQUES AL'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Mail</strong><br />' + (feature.properties['Mail'] !== null ? autolinker.link(feature.properties['Mail'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_AntennesBA_16_0() {
+            return {
+                pane: 'pane_AntennesBA_16',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/BA (associations partenaires).svg',
+            iconSize: [11.399999999999999, 11.399999999999999]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_AntennesBA_16');
+        map.getPane('pane_AntennesBA_16').style.zIndex = 416;
+        map.getPane('pane_AntennesBA_16').style['mix-blend-mode'] = 'normal';
+        var layer_AntennesBA_16 = new L.geoJson(json_AntennesBA_16, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_AntennesBA_16',
+            layerName: 'layer_AntennesBA_16',
+            pane: 'pane_AntennesBA_16',
+            onEachFeature: pop_AntennesBA_16,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_AntennesBA_16_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_AntennesBA_16);
+        map.addLayer(layer_AntennesBA_16);
+        function pop_BanqueAlimentaireduJura_17(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>REGION</strong><br />' + (feature.properties['REGION'] !== null ? autolinker.link(feature.properties['REGION'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Banque Alimentaire</strong><br />' + (feature.properties['BANQUES AL'] !== null ? autolinker.link(feature.properties['BANQUES AL'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Email</strong><br />' + (feature.properties['Email'] !== null ? autolinker.link(feature.properties['Email'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>adresse1</strong><br />' + (feature.properties['adresse1'] !== null ? autolinker.link(feature.properties['adresse1'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>adresse2</strong><br />' + (feature.properties['adresse2'] !== null ? autolinker.link(feature.properties['adresse2'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>CP</strong><br />' + (feature.properties['CP'] !== null ? autolinker.link(feature.properties['CP'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ville</strong><br />' + (feature.properties['ville'] !== null ? autolinker.link(feature.properties['ville'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Tél</strong><br />' + (feature.properties['Tél'] !== null ? autolinker.link(feature.properties['Tél'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_BanqueAlimentaireduJura_17_0() {
+            return {
+                pane: 'pane_BanqueAlimentaireduJura_17',
+                shape: 'square',
+                radius: 9.2,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+        }
+        function style_BanqueAlimentaireduJura_17_1() {
+            return {
+                pane: 'pane_BanqueAlimentaireduJura_17',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/BA (entrepôt).svg',
+            iconSize: [15.2, 15.2]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_BanqueAlimentaireduJura_17');
+        map.getPane('pane_BanqueAlimentaireduJura_17').style.zIndex = 417;
+        map.getPane('pane_BanqueAlimentaireduJura_17').style['mix-blend-mode'] = 'normal';
+        var layer_BanqueAlimentaireduJura_17 = new L.geoJson.multiStyle(json_BanqueAlimentaireduJura_17, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_BanqueAlimentaireduJura_17',
+            layerName: 'layer_BanqueAlimentaireduJura_17',
+            pane: 'pane_BanqueAlimentaireduJura_17',
+            onEachFeature: pop_BanqueAlimentaireduJura_17,
+            pointToLayers: [function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_BanqueAlimentaireduJura_17_0(feature));
+            },function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_BanqueAlimentaireduJura_17_1(feature));
+            },
+        ]});
+        bounds_group.addLayer(layer_BanqueAlimentaireduJura_17);
+        map.addLayer(layer_BanqueAlimentaireduJura_17);
+        function pop_RgionBourgogneFrancheComt_18(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
@@ -1157,9 +1294,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_RgionBourgogneFrancheComt_16_0() {
+        function style_RgionBourgogneFrancheComt_18_0() {
             return {
-                pane: 'pane_RgionBourgogneFrancheComt_16',
+                pane: 'pane_RgionBourgogneFrancheComt_18',
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
@@ -1170,23 +1307,33 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_RgionBourgogneFrancheComt_16');
-        map.getPane('pane_RgionBourgogneFrancheComt_16').style.zIndex = 416;
-        map.getPane('pane_RgionBourgogneFrancheComt_16').style['mix-blend-mode'] = 'normal';
-        var layer_RgionBourgogneFrancheComt_16 = new L.geoJson(json_RgionBourgogneFrancheComt_16, {
+        map.createPane('pane_RgionBourgogneFrancheComt_18');
+        map.getPane('pane_RgionBourgogneFrancheComt_18').style.zIndex = 418;
+        map.getPane('pane_RgionBourgogneFrancheComt_18').style['mix-blend-mode'] = 'normal';
+        var layer_RgionBourgogneFrancheComt_18 = new L.geoJson(json_RgionBourgogneFrancheComt_18, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_RgionBourgogneFrancheComt_16',
-            layerName: 'layer_RgionBourgogneFrancheComt_16',
-            pane: 'pane_RgionBourgogneFrancheComt_16',
-            onEachFeature: pop_RgionBourgogneFrancheComt_16,
-            style: style_RgionBourgogneFrancheComt_16_0,
+            dataVar: 'json_RgionBourgogneFrancheComt_18',
+            layerName: 'layer_RgionBourgogneFrancheComt_18',
+            pane: 'pane_RgionBourgogneFrancheComt_18',
+            onEachFeature: pop_RgionBourgogneFrancheComt_18,
+            style: style_RgionBourgogneFrancheComt_18_0,
         });
-        bounds_group.addLayer(layer_RgionBourgogneFrancheComt_16);
-        map.addLayer(layer_RgionBourgogneFrancheComt_16);
+        bounds_group.addLayer(layer_RgionBourgogneFrancheComt_18);
+        map.addLayer(layer_RgionBourgogneFrancheComt_18);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/RgionBourgogneFrancheComt_16.png" /> Région Bourgogne Franche Comté': layer_RgionBourgogneFrancheComt_16,'Associations partenaires de la Banque Alimentaire <br /><table><tr><td style="text-align: center;"><img src="legend/AssociationspartenairesdelaBanqueAlimentaire_15_Colis0.png" /></td><td>Colis</td></tr><tr><td style="text-align: center;"><img src="legend/AssociationspartenairesdelaBanqueAlimentaire_15_Epiceriesociale1.png" /></td><td>Epicerie sociale</td></tr></table>': layer_AssociationspartenairesdelaBanqueAlimentaire_15,'<img src="legend/SecoursPopulaireJura_14.png" /> Secours Populaire Jura': layer_SecoursPopulaireJura_14,'<img src="legend/RestoJura_13.png" /> Resto Jura': layer_RestoJura_13,'<img src="legend/SecoursCatholiqueJura_12.png" /> Secours Catholique Jura': layer_SecoursCatholiqueJura_12,'Indice présomption de précarité alimentaire - EPCI<br /><table><tr><td style="text-align: center;"><img src="legend/IndiceprsomptiondeprcaritalimentaireEPCI_11_Faible0.png" /></td><td>Faible</td></tr><tr><td style="text-align: center;"><img src="legend/IndiceprsomptiondeprcaritalimentaireEPCI_11_Moyen1.png" /></td><td>Moyen</td></tr><tr><td style="text-align: center;"><img src="legend/IndiceprsomptiondeprcaritalimentaireEPCI_11_Elevé2.png" /></td><td>Elevé</td></tr><tr><td style="text-align: center;"><img src="legend/IndiceprsomptiondeprcaritalimentaireEPCI_11_Trèsélevé3.png" /></td><td>Très élevé</td></tr></table>': layer_IndiceprsomptiondeprcaritalimentaireEPCI_11,'<img src="legend/Donnesindisponibles_10.png" /> Données indisponibles': layer_Donnesindisponibles_10,'Médiane du niveau de vie disponible par UC (2020)<br /><table><tr><td style="text-align: center;"><img src="legend/MdianeduniveaudeviedisponibleparUC2020_9_9642216940.png" /></td><td>9642 - 21694 €</td></tr><tr><td style="text-align: center;"><img src="legend/MdianeduniveaudeviedisponibleparUC2020_9_21694228081.png" /></td><td>21694 - 22808 €</td></tr><tr><td style="text-align: center;"><img src="legend/MdianeduniveaudeviedisponibleparUC2020_9_22808238642.png" /></td><td>22808 - 23864 €</td></tr><tr><td style="text-align: center;"><img src="legend/MdianeduniveaudeviedisponibleparUC2020_9_23864378703.png" /></td><td>23864 - 37870 €</td></tr></table>': layer_MdianeduniveaudeviedisponibleparUC2020_9,'<img src="legend/NA_8.png" /> NA ': layer_NA_8,'Indice socioéconomique communal<br /><table><tr><td style="text-align: center;"><img src="legend/Indicesocioconomiquecommunal_7_00130.png" /></td><td>0 - 0,13</td></tr><tr><td style="text-align: center;"><img src="legend/Indicesocioconomiquecommunal_7_01302051.png" /></td><td>0,13 - 0,205</td></tr><tr><td style="text-align: center;"><img src="legend/Indicesocioconomiquecommunal_7_020502732.png" /></td><td>0,205 - 0,273</td></tr><tr><td style="text-align: center;"><img src="legend/Indicesocioconomiquecommunal_7_027303643.png" /></td><td>0,273 - 0,364</td></tr><tr><td style="text-align: center;"><img src="legend/Indicesocioconomiquecommunal_7_036405834.png" /></td><td>0,364 - 0,583</td></tr></table>': layer_Indicesocioconomiquecommunal_7,'Indice de jeunesse<br /><table><tr><td style="text-align: center;"><img src="legend/Indicedejeunesse_6_7500.png" /></td><td>7 - 50</td></tr><tr><td style="text-align: center;"><img src="legend/Indicedejeunesse_6_50801.png" /></td><td>50 - 80</td></tr><tr><td style="text-align: center;"><img src="legend/Indicedejeunesse_6_801002.png" /></td><td>80 - 100</td></tr><tr><td style="text-align: center;"><img src="legend/Indicedejeunesse_6_1001503.png" /></td><td>100 - 150</td></tr><tr><td style="text-align: center;"><img src="legend/Indicedejeunesse_6_1507004.png" /></td><td>150 - 700</td></tr></table>': layer_Indicedejeunesse_6,'Nombre de consultations par an et par personne<br /><table><tr><td style="text-align: center;"><img src="legend/Nombredeconsultationsparanetparpersonne_5_0220.png" /></td><td>0,2 - 2</td></tr><tr><td style="text-align: center;"><img src="legend/Nombredeconsultationsparanetparpersonne_5_241.png" /></td><td>2 - 4</td></tr><tr><td style="text-align: center;"><img src="legend/Nombredeconsultationsparanetparpersonne_5_4562.png" /></td><td>4 - 5,6</td></tr></table>': layer_Nombredeconsultationsparanetparpersonne_5,'Part des ménages disposant au moins d\'une voiture<br /><table><tr><td style="text-align: center;"><img src="legend/Partdesmnagesdisposantaumoinsdunevoiture_4_73900.png" /></td><td>73 - 90</td></tr><tr><td style="text-align: center;"><img src="legend/Partdesmnagesdisposantaumoinsdunevoiture_4_901001.png" /></td><td>90 - 100</td></tr><tr><td style="text-align: center;"><img src="legend/Partdesmnagesdisposantaumoinsdunevoiture_4_1001602.png" /></td><td>100 - 160</td></tr></table>': layer_Partdesmnagesdisposantaumoinsdunevoiture_4,'<img src="legend/Communesavecaidealimentaireidentifie_3.png" /> Communes avec aide alimentaire identifiée': layer_Communesavecaidealimentaireidentifie_3,'<img src="legend/Communes_2.png" /> Communes ': layer_Communes_2,'<img src="legend/EPCIJura_1.png" /> EPCI - Jura': layer_EPCIJura_1,"Google Road": layer_GoogleRoad_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/RgionBourgogneFrancheComt_18.png" /> Région Bourgogne Franche Comté': layer_RgionBourgogneFrancheComt_18,'<img src="legend/BanqueAlimentaireduJura_17.png" /> Banque Alimentaire du Jura': layer_BanqueAlimentaireduJura_17,'<img src="legend/AntennesBA_16.png" /> Antennes - BA': layer_AntennesBA_16,'Associations partenaires de la Banque Alimentaire <br /><table><tr><td style="text-align: center;"><img src="legend/AssociationspartenairesdelaBanqueAlimentaire_15_Colis0.png" /></td><td>Colis</td></tr><tr><td style="text-align: center;"><img src="legend/AssociationspartenairesdelaBanqueAlimentaire_15_Epiceriesociale1.png" /></td><td>Epicerie sociale</td></tr></table>': layer_AssociationspartenairesdelaBanqueAlimentaire_15,'<img src="legend/SecoursPopulaireJura_14.png" /> Secours Populaire Jura': layer_SecoursPopulaireJura_14,'<img src="legend/RestoJura_13.png" /> Resto Jura': layer_RestoJura_13,'<img src="legend/SecoursCatholiqueJura_12.png" /> Secours Catholique Jura': layer_SecoursCatholiqueJura_12,'Indice présomption de précarité alimentaire - EPCI<br /><table><tr><td style="text-align: center;"><img src="legend/IndiceprsomptiondeprcaritalimentaireEPCI_11_Faible0.png" /></td><td>Faible</td></tr><tr><td style="text-align: center;"><img src="legend/IndiceprsomptiondeprcaritalimentaireEPCI_11_Moyen1.png" /></td><td>Moyen</td></tr><tr><td style="text-align: center;"><img src="legend/IndiceprsomptiondeprcaritalimentaireEPCI_11_Elevé2.png" /></td><td>Elevé</td></tr><tr><td style="text-align: center;"><img src="legend/IndiceprsomptiondeprcaritalimentaireEPCI_11_Trèsélevé3.png" /></td><td>Très élevé</td></tr></table>': layer_IndiceprsomptiondeprcaritalimentaireEPCI_11,'<img src="legend/Donnesindisponibles_10.png" /> Données indisponibles': layer_Donnesindisponibles_10,'Médiane du niveau de vie disponible par UC (2020)<br /><table><tr><td style="text-align: center;"><img src="legend/MdianeduniveaudeviedisponibleparUC2020_9_9642216940.png" /></td><td>9642 - 21694 €</td></tr><tr><td style="text-align: center;"><img src="legend/MdianeduniveaudeviedisponibleparUC2020_9_21694228081.png" /></td><td>21694 - 22808 €</td></tr><tr><td style="text-align: center;"><img src="legend/MdianeduniveaudeviedisponibleparUC2020_9_22808238642.png" /></td><td>22808 - 23864 €</td></tr><tr><td style="text-align: center;"><img src="legend/MdianeduniveaudeviedisponibleparUC2020_9_23864378703.png" /></td><td>23864 - 37870 €</td></tr></table>': layer_MdianeduniveaudeviedisponibleparUC2020_9,'<img src="legend/NA_8.png" /> NA ': layer_NA_8,'Indice socioéconomique communal<br /><table><tr><td style="text-align: center;"><img src="legend/Indicesocioconomiquecommunal_7_00130.png" /></td><td>0 - 0,13</td></tr><tr><td style="text-align: center;"><img src="legend/Indicesocioconomiquecommunal_7_01302051.png" /></td><td>0,13 - 0,205</td></tr><tr><td style="text-align: center;"><img src="legend/Indicesocioconomiquecommunal_7_020502732.png" /></td><td>0,205 - 0,273</td></tr><tr><td style="text-align: center;"><img src="legend/Indicesocioconomiquecommunal_7_027303643.png" /></td><td>0,273 - 0,364</td></tr><tr><td style="text-align: center;"><img src="legend/Indicesocioconomiquecommunal_7_036405834.png" /></td><td>0,364 - 0,583</td></tr></table>': layer_Indicesocioconomiquecommunal_7,'Indice de jeunesse<br /><table><tr><td style="text-align: center;"><img src="legend/Indicedejeunesse_6_7500.png" /></td><td>7 - 50</td></tr><tr><td style="text-align: center;"><img src="legend/Indicedejeunesse_6_50801.png" /></td><td>50 - 80</td></tr><tr><td style="text-align: center;"><img src="legend/Indicedejeunesse_6_801002.png" /></td><td>80 - 100</td></tr><tr><td style="text-align: center;"><img src="legend/Indicedejeunesse_6_1001503.png" /></td><td>100 - 150</td></tr><tr><td style="text-align: center;"><img src="legend/Indicedejeunesse_6_1507004.png" /></td><td>150 - 700</td></tr></table>': layer_Indicedejeunesse_6,'Nombre de consultations par an et par personne <br /><table><tr><td style="text-align: center;"><img src="legend/Nombredeconsultationsparanetparpersonne_5_0220.png" /></td><td>0,2 - 2</td></tr><tr><td style="text-align: center;"><img src="legend/Nombredeconsultationsparanetparpersonne_5_241.png" /></td><td>2 - 4</td></tr><tr><td style="text-align: center;"><img src="legend/Nombredeconsultationsparanetparpersonne_5_4562.png" /></td><td>4 - 5,6</td></tr></table>': layer_Nombredeconsultationsparanetparpersonne_5,'Part des ménages disposant au moins d\'une voiture<br /><table><tr><td style="text-align: center;"><img src="legend/Partdesmnagesdisposantaumoinsdunevoiture_4_73900.png" /></td><td>73 - 90</td></tr><tr><td style="text-align: center;"><img src="legend/Partdesmnagesdisposantaumoinsdunevoiture_4_901001.png" /></td><td>90 - 100</td></tr><tr><td style="text-align: center;"><img src="legend/Partdesmnagesdisposantaumoinsdunevoiture_4_1001602.png" /></td><td>100 - 160</td></tr></table>': layer_Partdesmnagesdisposantaumoinsdunevoiture_4,'<img src="legend/Communesavecaidealimentaireidentifie_3.png" /> Communes avec aide alimentaire identifiée': layer_Communesavecaidealimentaireidentifie_3,'<img src="legend/Communes_2.png" /> Communes ': layer_Communes_2,'<img src="legend/EPCIJura_1.png" /> EPCI - Jura': layer_EPCIJura_1,"Google Road": layer_GoogleRoad_0,},{collapsed:false}).addTo(map);
         setBounds();
+        resetLabels([layer_Communesavecaidealimentaireidentifie_3]);
+        map.on("zoomend", function(){
+            resetLabels([layer_Communesavecaidealimentaireidentifie_3]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_Communesavecaidealimentaireidentifie_3]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_Communesavecaidealimentaireidentifie_3]);
+        });
         </script>
     </body>
 </html>
