@@ -107,7 +107,7 @@
         function pop_Communes_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2"><strong>nom</strong><br />' + (feature.properties['nom'] !== null ? autolinker.link(feature.properties['nom'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Commune</strong><br />' + (feature.properties['nom'] !== null ? autolinker.link(feature.properties['nom'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2"><strong>Population</strong><br />' + (feature.properties['Population'] !== null ? autolinker.link(feature.properties['Population'].toLocaleString()) : '') + '</td>\
@@ -147,7 +147,7 @@
         function pop_Communesavecaidealimentaireidentifie_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2"><strong>nom</strong><br />' + (feature.properties['nom'] !== null ? autolinker.link(feature.properties['nom'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Commune</strong><br />' + (feature.properties['nom'] !== null ? autolinker.link(feature.properties['nom'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2"><strong>Population</strong><br />' + (feature.properties['Population'] !== null ? autolinker.link(feature.properties['Population'].toLocaleString()) : '') + '</td>\
@@ -188,13 +188,13 @@
         function pop_Partdesmnagesdisposantaumoinsdunevoiture_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2"><strong>nom</strong><br />' + (feature.properties['nom'] !== null ? autolinker.link(feature.properties['nom'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Commune</strong><br />' + (feature.properties['nom'] !== null ? autolinker.link(feature.properties['nom'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2"><strong>Population</strong><br />' + (feature.properties['Population'] !== null ? autolinker.link(feature.properties['Population'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Part des ménages disposant au moins d\'une voiture </strong><br />' + (feature.properties['Part des m'] !== null ? autolinker.link(feature.properties['Part des m'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Part des ménages disposant au moins d\'une voiture (en %)</strong><br />' + (feature.properties['Part des m'] !== null ? autolinker.link(feature.properties['Part des m'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2"><strong>Indice de mobilité</strong><br />' + (feature.properties['Indice de'] !== null ? autolinker.link(feature.properties['Indice de'].toLocaleString()) : '') + '</td>\
@@ -266,7 +266,7 @@
         function pop_Nombredeconsultationsparanetparpersonne_5(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2"><strong>nom</strong><br />' + (feature.properties['nom'] !== null ? autolinker.link(feature.properties['nom'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Commune</strong><br />' + (feature.properties['nom'] !== null ? autolinker.link(feature.properties['nom'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2"><strong>Population</strong><br />' + (feature.properties['Population'] !== null ? autolinker.link(feature.properties['Population'].toLocaleString()) : '') + '</td>\
@@ -344,7 +344,7 @@
         function pop_Indicedejeunesse_6(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2"><strong>nom</strong><br />' + (feature.properties['nom'] !== null ? autolinker.link(feature.properties['nom'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Commune</strong><br />' + (feature.properties['nom'] !== null ? autolinker.link(feature.properties['nom'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2"><strong>Indice de jeunesse (pop<20 ans pour 100 personnes >60 ans)</strong><br />' + (feature.properties['Indice de'] !== null ? autolinker.link(feature.properties['Indice de'].toLocaleString()) : '') + '</td>\
@@ -446,19 +446,19 @@
         function pop_Indicesocioconomiquecommunal_7(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2"><strong>nom</strong><br />' + (feature.properties['nom'] !== null ? autolinker.link(feature.properties['nom'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Commune</strong><br />' + (feature.properties['nom'] !== null ? autolinker.link(feature.properties['nom'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Part des familles monoparentales</strong><br />' + (feature.properties['Part des f'] !== null ? autolinker.link(feature.properties['Part des f'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Part des familles monoparentales (en %)</strong><br />' + (feature.properties['Part des f'] !== null ? autolinker.link(feature.properties['Part des f'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Part des jeunes non insérés</strong><br />' + (feature.properties['Part des j'] !== null ? autolinker.link(feature.properties['Part des j'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Part des jeunes non insérés (en %)</strong><br />' + (feature.properties['Part des j'] !== null ? autolinker.link(feature.properties['Part des j'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Part des ménages d\'une personne</strong><br />' + (feature.properties['Part des m'] !== null ? autolinker.link(feature.properties['Part des m'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Part des ménages d\'une personne (en %)</strong><br />' + (feature.properties['Part des m'] !== null ? autolinker.link(feature.properties['Part des m'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Taux de chômage</strong><br />' + (feature.properties['Taux de ch'] !== null ? autolinker.link(feature.properties['Taux de ch'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Taux de chômage (en %)</strong><br />' + (feature.properties['Taux de ch'] !== null ? autolinker.link(feature.properties['Taux de ch'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2"><strong>Indice socio économique</strong><br />' + (feature.properties['Indice soc'] !== null ? autolinker.link(feature.properties['Indice soc'].toLocaleString()) : '') + '</td>\
@@ -640,10 +640,10 @@
         function pop_MdianeduniveaudeviedisponibleparUC2020_9(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2"><strong>nom</strong><br />' + (feature.properties['nom'] !== null ? autolinker.link(feature.properties['nom'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Commune</strong><br />' + (feature.properties['nom'] !== null ? autolinker.link(feature.properties['nom'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Médiane du nieveau de vie(en €)</strong><br />' + (feature.properties['Médiane d'] !== null ? autolinker.link(feature.properties['Médiane d'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Médiane du nieveau de vie (en €)</strong><br />' + (feature.properties['Médiane d'] !== null ? autolinker.link(feature.properties['Médiane d'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2"><strong>Indice monétaire</strong><br />' + (feature.properties['Indice'] !== null ? autolinker.link(feature.properties['Indice'].toLocaleString()) : '') + '</td>\
@@ -807,25 +807,25 @@
                         <td colspan="2"><strong>Médiane du niveau de vie en €</strong><br />' + (feature.properties['Médiane d'] !== null ? autolinker.link(feature.properties['Médiane d'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Part des familles monoparentales</strong><br />' + (feature.properties['Part des f'] !== null ? autolinker.link(feature.properties['Part des f'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Part des familles monoparentales (en %)</strong><br />' + (feature.properties['Part des f'] !== null ? autolinker.link(feature.properties['Part des f'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Part des ménages d\'une personne</strong><br />' + (feature.properties['Part des m'] !== null ? autolinker.link(feature.properties['Part des m'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Part des ménages d\'une personne (en %)</strong><br />' + (feature.properties['Part des m'] !== null ? autolinker.link(feature.properties['Part des m'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Part des jeunes non insérés</strong><br />' + (feature.properties['Part des j'] !== null ? autolinker.link(feature.properties['Part des j'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Part des jeunes non insérés (en %)</strong><br />' + (feature.properties['Part des j'] !== null ? autolinker.link(feature.properties['Part des j'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Taux de chômage</strong><br />' + (feature.properties['Taux de ch'] !== null ? autolinker.link(feature.properties['Taux de ch'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Taux de chômage (en %)</strong><br />' + (feature.properties['Taux de ch'] !== null ? autolinker.link(feature.properties['Taux de ch'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Part des ménages ayant au moins une voiture</strong><br />' + (feature.properties['Part des_1'] !== null ? autolinker.link(feature.properties['Part des_1'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Part des ménages ayant au moins une voiture (en %)</strong><br />' + (feature.properties['Part des_1'] !== null ? autolinker.link(feature.properties['Part des_1'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Part des moins de 15 ans</strong><br />' + (feature.properties['Part des_2'] !== null ? autolinker.link(feature.properties['Part des_2'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Part des moins de 15 ans (en %)</strong><br />' + (feature.properties['Part des_2'] !== null ? autolinker.link(feature.properties['Part des_2'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2"><strong>Part des 75 ans</strong><br />' + (feature.properties['Part des 7'] !== null ? autolinker.link(feature.properties['Part des 7'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>Part des 75 ans (en %)</strong><br />' + (feature.properties['Part des 7'] !== null ? autolinker.link(feature.properties['Part des 7'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2"><strong>Consultations par an/personne</strong><br />' + (feature.properties['Consultati'] !== null ? autolinker.link(feature.properties['Consultati'].toLocaleString()) : '') + '</td>\
